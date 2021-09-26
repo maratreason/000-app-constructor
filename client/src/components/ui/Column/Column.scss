@@ -1,0 +1,12 @@
+.column {
+    width: 100%;
+    min-width: 10%;
+    min-height: 25px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 3px;
+
+    &:not(:last-child) {
+        margin-right: 3px;
+    }
+}

@@ -1,0 +1,22 @@
+.rightbar-tabs {
+    display: flex;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.rightbar-tabs-header {
+    padding: 10px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: bold;
+
+    &.active {
+        color: #5C5C5C;
+    }
+}
+
+.rightbar-tabs-content {
+    
+}

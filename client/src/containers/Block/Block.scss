@@ -1,0 +1,10 @@
+.block {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+
+    &:nth-child(5) {
+        .block-content {
+            flex-direction: column;
+        }
+    }
+}
