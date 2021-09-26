@@ -1,10 +1,18 @@
 import React, {FC, useState} from "react";
 import Input from "../../components/ui/Input";
+import { setTypographyText } from "../../utils/typography";
 import "./Site.scss";
 
 const Site: FC = () => {
     const [siteChildren, setSiteChildren] = useState<any>([]);
     const [editable, setEditable] = useState(false);
+
+    const [value, setValue] = useState("");
+
+    const changeHandler = (e: any, id: string, children: any) => {
+        setValue(e.target.value);
+        setTypographyText(e.target.value, id, children);
+    }
 
     const dragstartHandler = (event: any) => {};
 
@@ -85,19 +93,26 @@ const Site: FC = () => {
                     data-id={ch.id}
                 />;
             } else if (ch.classes === "typography") {
-                console.log("editable", editable);
                 if (editable) {
                     return <Input
                         key={ch.id}
-                        value={ch.text ? ch.text : ""}
-                        onBlur={() => setEditable(false)}
+                        value={ch.text ? ch.text : value}
+                        onChange={(e: any) => changeHandler(e, ch.id, siteChildren)}
+                        onBlur={() => {
+                            setEditable(false);
+                            ch.edited = false;
+                        }}
                     />
                 } else {
                     return <ch.tagname
                         key={ch.id}
                         className={ch.classes}
                         data-id={ch.id}
-                        onDoubleClick={() => setEditable(true)}
+                        edited={editable}
+                        onDoubleClick={() => {
+                            setEditable(true);
+                            ch.edited = true;
+                        }}
                     >{ch.text}</ch.tagname>;
                 }
                 
