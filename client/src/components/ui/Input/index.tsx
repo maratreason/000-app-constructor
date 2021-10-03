@@ -1,13 +1,8 @@
 import React, {FC, useState} from "react";
 import "./Input.scss";
 
-const Input: FC<any> = ({text}) => {
+const Input: FC<any> = ({value, onChange}) => {
     const [id, setId] = useState(1);
-    const [value, setValue] = useState(text);
-
-    const changeHandler = (e: any) => {
-        setValue(e.target.value);
-    }
 
     const dragstartHandler = (event: any) => {
         setId(id + 1);
@@ -52,7 +47,7 @@ const Input: FC<any> = ({text}) => {
             type="text"
             placeholder="Введите что-нибудь"
             value={value}
-            onChange={changeHandler}
+            onChange={onChange}
         />
     );
 };

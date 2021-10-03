@@ -1,19 +1,20 @@
 import React, {FC, useState} from "react";
 import "./Typography.scss";
 
-const Typography: FC<any> = ({Tagname, text}) => {
+const Typography: FC<any> = ({Tagname, text, edited}) => {
     const [id, setId] = useState(1);
 
     const dragstartHandler = (event: any) => {
         setId(id + 1);
-        const Button = {
+        const Typography = {
             id,
             tagname: Tagname,
             classes: "typography",
             text,
+            edited,
             children: [],
         };
-        event.dataTransfer.setData("targetElement", JSON.stringify(Button));
+        event.dataTransfer.setData("targetElement", JSON.stringify(Typography));
     };
 
     const dragoverHandler = (event: any) => {

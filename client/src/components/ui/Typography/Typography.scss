@@ -6,6 +6,30 @@ h1.typography {
     font-size: 32px;
 }
 
+h2.typography {
+    font-size: 24px;
+}
+
+h3.typography {
+    font-size: 20px;
+}
+
+h4.typography {
+    font-size: 18px;
+}
+
+h5.typography {
+    font-size: 14px;
+}
+
+h6.typography {
+    font-size: 12px;
+}
+
+.typography {
+    margin-bottom: 10px;
+}
+
 .typography:hover {
     border: 1px solid #ccc;
 }
