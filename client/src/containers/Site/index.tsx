@@ -1,5 +1,6 @@
 import React, {FC, useState} from "react";
 import Input from "../../components/ui/Input";
+import { renderInput, typographyRender } from "../../utils/site";
 import { setTypographyText } from "../../utils/typography";
 import "./Site.scss";
 
@@ -12,6 +13,16 @@ const Site: FC = () => {
     const changeHandler = (e: any, id: string, children: any) => {
         setValue(e.target.value);
         setTypographyText(e.target.value, id, children);
+    }
+
+    const openEditTypography = (ch: any) => {
+        setEditable(true);
+        ch.edited = true;
+    }
+
+    const closeEditTypography = (ch: any) => {
+        setEditable(false);
+        ch.edited = false;
     }
 
     const dragstartHandler = (event: any) => {};
@@ -87,35 +98,12 @@ const Site: FC = () => {
 
         return child.map((ch: any) => {
             if (ch.tagname === "input") {
-                return <ch.tagname
-                    key={ch.id}
-                    className={ch.classes}
-                    data-id={ch.id}
-                />;
+                return renderInput(ch);
             } else if (ch.classes === "typography") {
-                if (editable) {
-                    return <Input
-                        key={ch.id}
-                        value={ch.text ? ch.text : value}
-                        onChange={(e: any) => changeHandler(e, ch.id, siteChildren)}
-                        onBlur={() => {
-                            setEditable(false);
-                            ch.edited = false;
-                        }}
-                    />
-                } else {
-                    return <ch.tagname
-                        key={ch.id}
-                        className={ch.classes}
-                        data-id={ch.id}
-                        edited={editable}
-                        onDoubleClick={() => {
-                            setEditable(true);
-                            ch.edited = true;
-                        }}
-                    >{ch.text}</ch.tagname>;
-                }
-                
+                return typographyRender(
+                    editable, openEditTypography, closeEditTypography,
+                    value, changeHandler, ch, siteChildren
+                );
             } else {
                 return <ch.tagname
                     key={ch.id}

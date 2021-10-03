@@ -1,0 +1,31 @@
+.leftbar-page {
+    font-size: 0.8rem;
+    padding: 10px;
+    cursor: pointer;
+
+    & > svg {
+        margin-left: 5px;
+        position: relative;
+        top: 3px;
+    }
+}
+
+.leftbar-list {
+    &.list-2 {
+        margin-left: 20px;
+    }
+
+    .list-item {
+        line-height: 2.5;
+        display: flex;
+        align-items: center;
+
+        & > *:first-child {
+            margin-right: 5px;
+        }
+
+        &.folder {
+            font-weight: bold;
+        }
+    }
+}

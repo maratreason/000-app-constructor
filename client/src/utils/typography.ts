@@ -4,8 +4,6 @@ export const setTypographyText = (text: string, id: string, data: any): any => {
             return setTypographyText(text, el.id, el.children,);
         } else {
             if (el.classes === "typography" && el.id === id) {
-                console.log("id", id);
-                console.log("el.id", el.id);
                 el.text = text;
             }
         }
