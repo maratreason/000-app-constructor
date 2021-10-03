@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LeftBarPage from "./components/LeeftBarPage";
+import LeftBarPage from "./components/LeftBarPage";
 import Navbar from "./components/Navbar";
 import RightBarTabs from "./components/RightBarTabs";
 import Content from "./containers/Content";
