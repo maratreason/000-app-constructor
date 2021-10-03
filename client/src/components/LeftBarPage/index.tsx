@@ -22,7 +22,7 @@ export const renderIcon = (classes: string) => {
 };
 
 const LeftBarPage: FC = () => {
-    const leftMenu = [
+    const [leftMenu, setLeftMenu] = useState([
         {
             id: 1,
             title: "frame 9",
@@ -64,7 +64,7 @@ const LeftBarPage: FC = () => {
                 },
             ],
         },
-    ];
+    ]);
 
     const renderMenu = (arr: any) => {
         return arr.map((item: any) => {
@@ -101,18 +101,6 @@ const LeftBarPage: FC = () => {
             <Block>
                 <div className="leftbar-page">
                     <ul className="leftbar-list">{renderMenu(leftMenu)}</ul>
-                    {/* <ul className="leftbar-list">
-                        <li className="list-item"># Frame 9</li>
-                        <li className="list-item"># Frame 10</li>
-                        <li className="list-item">
-                            # Frame 15
-                            <ul className="leftbar-list list-2">
-                                <li className="list-item">T Поиск...</li>
-                                <li className="list-item">Rectangle</li>
-                                <li className="list-item">Group 114</li>
-                            </ul>
-                        </li>
-                    </ul> */}
                 </div>
             </Block>
         </>
